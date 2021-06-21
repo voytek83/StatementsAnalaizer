@@ -8,17 +8,16 @@ import java.nio.file.Paths;
 import java.time.Month;
 import java.util.List;
 
-public class transactionAnalyzer {
+public class BankStatementAnalyzer {
+
     private static final String RESOURCES = "src/com/wojtek/";
-    private static final CSVParser CSVParser = new CSVParser();
 
-    public static void main(final String... args) throws IOException {
+    public void analyze(final String fileName, final BankStatmentParser bankStatmentParser) throws IOException {
 
-        final String fileName = args[0];
         final Path path = Paths.get(RESOURCES + fileName);
         final List<String> lines = Files.readAllLines(path, StandardCharsets.ISO_8859_1);
 
-        final List<BankTransaction> bankTransactions = CSVParser.parseLinesFromCSV(lines);
+        final List<BankTransaction> bankTransactions = bankStatmentParser.parseLinesFrom(lines);
         final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
 
         collectSummary(bankStatementProcessor);
