@@ -8,7 +8,6 @@ import java.time.Month;
 public class BankStatementCSVParserTest {
 
 
-
     @org.junit.Test
     public void shouldParseFromOneCorrectLine() throws Exception {
         final String line = "30-01-2017,50,Tesco";
@@ -28,4 +27,4 @@ public class BankStatementCSVParserTest {
     }
 
     */
-    }
+}

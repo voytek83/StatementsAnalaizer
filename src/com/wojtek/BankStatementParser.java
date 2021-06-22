@@ -3,6 +3,7 @@ package com.wojtek;
 import java.util.List;
 
 public interface BankStatementParser {
-    BankTransaction parseFrom(String line);
+    BankTransaction ąparseFrom(String line);
+
     List<BankTransaction> parseLinesFrom(List<String> lines);
 }
