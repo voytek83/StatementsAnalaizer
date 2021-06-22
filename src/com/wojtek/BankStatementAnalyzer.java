@@ -12,12 +12,12 @@ public class BankStatementAnalyzer {
 
     private static final String RESOURCES = "src/com/wojtek/";
 
-    public void analyze(final String fileName, final BankStatmentParser bankStatmentParser) throws IOException {
+    public void analyze(final String fileName, final BankStatementParser bankStatementParser) throws IOException {
 
         final Path path = Paths.get(RESOURCES + fileName);
         final List<String> lines = Files.readAllLines(path, StandardCharsets.ISO_8859_1);
 
-        final List<BankTransaction> bankTransactions = bankStatmentParser.parseLinesFrom(lines);
+        final List<BankTransaction> bankTransactions = bankStatementParser.parseLinesFrom(lines);
         final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
 
         collectSummary(bankStatementProcessor);
